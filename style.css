@@ -1,0 +1,181 @@
+body {
+    background-color: #2e7d32;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* --- リードプレイヤーの強調スタイル --- */
+.label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* リードしている側のラベルを光らせる */
+.label.active-lead {
+    background-color: #ffeb3b;
+    color: #333;
+    box-shadow: 0 0 15px #ffeb3b;
+    border-color: #fbc02d;
+    transform: scale(1.1);
+}
+
+#game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* --- レイアウトの調整 --- */
+#play-area {
+    display: flex;
+    align-items: center;
+    /* 垂直方向の中央揃え */
+    justify-content: center;
+    gap: 50px;
+    /* 切り札とバトルグラウンドの間隔 */
+    width: 100%;
+}
+
+/* 切り札エリアを左（または右）に固定 */
+#trump-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+
+#battle-ground {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: 300px;
+    justify-content: center;
+    flex-grow: 0;
+}
+
+.played-slot {
+    width: 90px;
+    height: 130px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
+
+#message-log {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffeb3b;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 10px;
+}
+
+.hand {
+    display: flex;
+    gap: 10px;
+    min-height: 150px;
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* カードの基本デザイン */
+.card {
+    width: 90px;
+    height: 130px;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid #333;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    position: relative;
+    /* マウスを乗せた時に指の形にする */
+    cursor: pointer;
+    /* 動きを滑らかにする */
+    transition: transform 0.2s ease, border-color 0.2s ease;
+
+}
+
+/* 選択された（浮いた）状態のスタイル */
+.card.selected {
+    /* 上に20px移動 */
+    transform: translateY(-20px);
+    /* 枠線を赤っぽくする */
+    border-color: #ff4757;
+    /* 影をつけて浮遊感を出す */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+.card.red {
+    color: #d32f2f;
+}
+
+.card.back {
+    background-color: #1565c0;
+    border-color: white;
+}
+
+/* 裏面 */
+
+#trump-card-container {
+    display: flex;
+    justify-content: center;
+}
+
+#controls {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* トリック表示用のドット */
+.trick-dots {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+}
+
+/* 獲得したトリックのドット（光る） */
+.dot.won {
+    background-color: #ffeb3b;
+    box-shadow: 0 0 8px #ffeb3b;
+}
+
+/* カードが勝者に吸い込まれるアニメーション */
+.card.collect-to-player {
+    transform: translateY(200px) scale(0);
+    opacity: 0;
+    transition: all 0.6s ease-in;
+}
+
+.card.collect-to-cpu {
+    transform: translateY(-200px) scale(0);
+    opacity: 0;
+    transition: all 0.6s ease-in;
+}

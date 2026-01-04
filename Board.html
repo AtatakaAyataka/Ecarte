@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Ecarte Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-board">
+        <div id="cpu-label" class="label">CPUの手札</div>
+        <div id="cpu-hand" class="hand"></div>
+
+        <div id="play-area">
+            <div id="trump-area">
+                <div class="label">切り札</div>
+                <div id="trump-card-container"></div>
+            </div>
+            <div id="battle-ground">
+                <div id="cpu-played-card" class="played-slot"></div>
+                <div id="player-played-card" class="played-slot"></div>
+            </div>
+            <div id="message-log">カードを出してください</div>
+        </div>
+
+        <div id="player-label" class="label">あなたの手札</div>
+        <div id="player-hand" class="hand"></div>
+
+        <div id="controls">
+
+            <div id="exchange-controls" style="display:none;">
+                <button id="exchange-confirm-btn">交換する</button>
+                <button id="stand-btn">交換しない（スタンド）</button>
+            </div>
+            <div id="dealer-choice-controls" style="display:none;">
+                <button id="accept-btn">交換を許可する</button>
+                <button id="refuse-btn">交換を拒否して開始</button>
+            </div>
+            <div id="king-controls" style="display:none;">
+                <button id="king-declare-btn">キングを宣言する</button>
+            </div>
+            <div id="score-board">
+                <div class="score-item">
+                    <div id="player-label" class="label">あなた</div>
+                    <div class="game-score-display">Total: <span id="player-game-score">0</span></div>
+                    <div id="player-trick-dots" class="trick-dots">トリック獲得数
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                            class="dot"></span><span class="dot"></span>
+                    </div>
+                </div>
+                <div class="score-item">
+                    <div id="cpu-label" class="label">CPU</div>
+                    <div class="game-score-display">Total: <span id="cpu-game-score">0</span></div>
+                    <div id="cpu-trick-dots" class="trick-dots">トリック獲得数
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                            class="dot"></span><span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+            <button id="start-btn">ゲーム開始（配り直し）</button>
+        </div>
+        <script src="Game.js"></script>
+</body>
+
+</html>
